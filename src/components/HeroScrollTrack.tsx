@@ -153,7 +153,7 @@ export default function HeroScrollTrack() {
           className="absolute inset-0 flex flex-col items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 z-10 pointer-events-none pt-14 sm:pt-20 lg:pt-16 pb-12 sm:pb-6 md:pb-8"
           style={{ opacity: heroOpacity }}
         >
-          <div className="w-full flex flex-col lg:flex-row items-center lg:items-center justify-between flex-1">
+          <div className="w-full flex flex-col lg:flex-row items-center lg:items-center justify-between flex-1 pt-6 sm:pt-0">
             {/* Esquerda: Título elevado + Subtítulo logo abaixo */}
             <motion.div 
               style={{ x: heroXLeft }} 
