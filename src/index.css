@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary antialiased font-sans selection:bg-accent/20;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm;
+}
+
+.dark-glass {
+  @apply bg-[#0B131E]/80 backdrop-blur-md border border-slate-700/50 shadow-lg text-white;
+}
+
+.btn-cta {
+  @apply inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.35)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_6px_28px_rgba(37,211,102,0.5)] active:scale-95 cursor-pointer;
+}
