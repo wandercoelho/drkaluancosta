@@ -143,11 +143,14 @@ export default function HeroScrollTrack() {
         )}
       </AnimatePresence>
 
-      <div className="sticky top-0 h-screen h-[100dvh] w-full overflow-hidden flex items-center justify-center pt-16 sm:pt-20">
+      <div 
+        className="sticky top-0 w-full overflow-hidden flex items-center justify-center pt-14 sm:pt-20"
+        style={{ height: '100dvh' }}
+      >
         
         {/* ================= CENA 1 & 2 ================= */}
         <motion.div 
-          className="absolute inset-0 flex flex-col items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 z-10 pointer-events-none pt-16 sm:pt-20 lg:pt-16 pb-4 sm:pb-6 md:pb-8"
+          className="absolute inset-0 flex flex-col items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 z-10 pointer-events-none pt-14 sm:pt-20 lg:pt-16 pb-12 sm:pb-6 md:pb-8"
           style={{ opacity: heroOpacity }}
         >
           <div className="w-full flex flex-col lg:flex-row items-center lg:items-center justify-between flex-1">
@@ -192,14 +195,18 @@ export default function HeroScrollTrack() {
             animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
           >
-            {/* Modo Mobile: Empilhado do lado esquerdo com acabamento refinado */}
-            <div className="flex md:hidden flex-col items-start gap-1.5 pb-1 max-w-[200px]">
-              <div className="glass px-2.5 py-1 rounded-lg text-xs font-semibold text-primary shadow-xs border border-slate-200/80 backdrop-blur-md">
-                <span className="text-accent font-bold">+</span> {isLoaded && <AnimatedCounter end={10000} duration={1.8} />} Pacientes
+            {/* Modo Mobile: Empilhado do lado esquerdo, elevado para visibilidade total */}
+            <div className="flex md:hidden flex-col items-start gap-2 max-w-[210px]">
+              <div className="glass px-3 py-1.5 rounded-xl text-xs font-semibold text-primary shadow-xs border border-slate-200/80 backdrop-blur-md flex items-center gap-1">
+                <span className="text-accent font-bold">+</span>
+                {isLoaded && <AnimatedCounter end={10000} duration={1.8} />}
+                <span>Pacientes</span>
               </div>
 
-              <div className="glass px-2.5 py-1 rounded-lg text-xs font-semibold text-primary shadow-xs border border-slate-200/80 backdrop-blur-md">
-                <span className="text-accent font-bold">+</span> {isLoaded && <AnimatedCounter end={5000} duration={1.8} />} h/cirurgias
+              <div className="glass px-3 py-1.5 rounded-xl text-xs font-semibold text-primary shadow-xs border border-slate-200/80 backdrop-blur-md flex items-center gap-1">
+                <span className="text-accent font-bold">+</span>
+                {isLoaded && <AnimatedCounter end={5000} duration={1.8} />}
+                <span>h/cirurgias</span>
               </div>
 
               <div>
@@ -207,9 +214,9 @@ export default function HeroScrollTrack() {
                   href="https://www.instagram.com/drkaluancosta/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="glass px-2.5 py-1 rounded-lg text-xs font-semibold text-primary hover:text-accent shadow-xs border border-slate-200/80 backdrop-blur-md inline-flex items-center gap-1.5 transition-colors"
+                  className="glass px-3 py-1.5 rounded-xl text-xs font-semibold text-primary hover:text-accent shadow-xs border border-slate-200/80 backdrop-blur-md inline-flex items-center gap-1.5 transition-colors"
                 >
-                  <Instagram size={13} className="text-accent shrink-0" />
+                  <Instagram size={14} className="text-accent shrink-0" />
                   <span>Instagram</span>
                 </a>
               </div>
@@ -249,8 +256,8 @@ export default function HeroScrollTrack() {
           </motion.div>
         </motion.div>
 
-        {/* Médico Centro / Túnel: Container estático mantém a centralização perfeita enquanto motion.div anima escala */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 h-[62dvh] sm:h-[80vh] lg:h-[88vh] pointer-events-none flex items-end justify-center">
+        {/* Médico Centro / Túnel: Container estático com elevação e escala ampliadas no mobile */}
+        <div className="absolute bottom-4 sm:bottom-0 left-1/2 -translate-x-1/2 z-0 h-[72dvh] sm:h-[80vh] lg:h-[88vh] pointer-events-none flex items-end justify-center">
           <motion.div 
             className="h-full w-auto origin-bottom"
             initial={{ opacity: 0, scale: 0.95 }}
