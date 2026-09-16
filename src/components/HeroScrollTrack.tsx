@@ -317,7 +317,7 @@ export default function HeroScrollTrack() {
         {/* ================= CENA 4: RETORNO ================= */}
         <motion.div 
           id="sobre"
-          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center max-w-6xl mx-auto px-4 md:px-6 z-30 pointer-events-none pt-16 md:pt-0 pb-6 md:pb-0"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center max-w-6xl mx-auto px-4 md:px-6 z-30 pointer-events-none"
           style={{ y: returnY, opacity: returnOpacity }}
         >
           {/* Imagem do médico: preservada em tablet e desktop */}
@@ -332,50 +332,43 @@ export default function HeroScrollTrack() {
             />
           </motion.div>
           
-          <div className="flex-1 flex flex-col justify-center items-center pointer-events-auto w-full max-w-lg lg:max-w-none h-full md:h-auto">
-            <div className="dark-glass w-full h-full max-h-[82dvh] md:max-h-none md:h-auto flex flex-col justify-between p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-700/60">
-              <div>
-                <div className="inline-block md:hidden text-[11px] uppercase tracking-[0.2em] text-accent font-semibold mb-2">
-                  Dr. Kaluan Costa
-                </div>
-                <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4 md:mb-6 text-white">
-                  Excelência Cirúrgica & Rigor Científico
-                </h2>
-                <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-slate-200 md:text-slate-300">
-                  <li className="flex gap-3 items-start">
-                    <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
-                    <span className="leading-snug">Especialização em Cirurgia de Quadril e Joelho — UFPR</span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
-                    <span className="leading-snug">Membro Titular da Sociedade Brasileira de Ortopedia e Traumatologia (SBOT)</span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
-                    <span className="leading-snug">Residência Médica — CEOT-PR</span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
-                    <span className="leading-snug">Professor de Ortopedia no Centro Universitário São Lucas (UNISL)</span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
-                    <span className="leading-snug">Corpo Clínico do Hospital Prontocordis</span>
-                  </li>
-                </ul>
-              </div>
+          <div className="flex-1 flex items-center justify-center pointer-events-auto w-full max-w-md lg:max-w-none">
+            <div className="dark-glass w-full p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-700/60">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold mb-5 text-white">
+                Excelência Cirúrgica & Rigor Científico
+              </h2>
+              <ul className="space-y-3.5 md:space-y-4 text-sm md:text-base text-slate-200 md:text-slate-300 mb-6 md:mb-8">
+                <li className="flex gap-3 items-start">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
+                  <span className="leading-snug">Especialização em Cirurgia de Quadril e Joelho — UFPR</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
+                  <span className="leading-snug">Membro Titular da Sociedade Brasileira de Ortopedia e Traumatologia (SBOT)</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
+                  <span className="leading-snug">Residência Médica — CEOT-PR</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
+                  <span className="leading-snug">Professor de Ortopedia no Centro Universitário São Lucas (UNISL)</span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0 shadow-[0_0_8px_rgba(2,132,199,0.8)]"></div>
+                  <span className="leading-snug">Corpo Clínico do Hospital Prontocordis</span>
+                </li>
+              </ul>
               
-              <div className="mt-5 md:mt-8 pt-2">
-                <a 
-                  href={wpLink} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn-cta w-full py-3.5 md:py-4 text-center text-sm md:text-base shadow-xl font-semibold"
-                >
-                  <Calendar size={20} />
-                  <span>Agendar Avaliação</span>
-                </a>
-              </div>
+              <a 
+                href={wpLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-cta w-full py-3.5 md:py-4 text-center text-sm md:text-base shadow-xl font-semibold"
+              >
+                <Calendar size={20} />
+                <span>Agendar Avaliação</span>
+              </a>
             </div>
           </div>
         </motion.div>
