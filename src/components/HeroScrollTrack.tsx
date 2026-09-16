@@ -143,18 +143,18 @@ export default function HeroScrollTrack() {
         )}
       </AnimatePresence>
 
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center pt-20">
+      <div className="sticky top-0 h-screen h-[100dvh] w-full overflow-hidden flex items-center justify-center pt-16 sm:pt-20">
         
         {/* ================= CENA 1 & 2 ================= */}
         <motion.div 
-          className="absolute inset-0 flex flex-col items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 z-10 pointer-events-none pt-24 sm:pt-28 lg:pt-16 pb-3 sm:pb-6 md:pb-8"
+          className="absolute inset-0 flex flex-col items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 z-10 pointer-events-none pt-16 sm:pt-20 lg:pt-16 pb-4 sm:pb-6 md:pb-8"
           style={{ opacity: heroOpacity }}
         >
           <div className="w-full flex flex-col lg:flex-row items-center lg:items-center justify-between flex-1">
             {/* Esquerda: Título elevado + Subtítulo logo abaixo */}
             <motion.div 
               style={{ x: heroXLeft }} 
-              className="flex-1 text-center lg:text-left max-w-xl"
+              className="w-full flex-1 text-center lg:text-left max-w-xl"
               initial={{ opacity: 0, y: 25 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
@@ -163,7 +163,7 @@ export default function HeroScrollTrack() {
                 RECUPERE A LIBERDADE DO<br/><span className="text-accent">SEU MOVIMENTO.</span>
               </h1>
               
-              <p className="text-xs sm:text-base md:text-lg lg:text-xl text-primary/80 leading-relaxed max-w-lg pointer-events-auto">
+              <p className="text-xs sm:text-base md:text-lg lg:text-xl text-primary/80 leading-relaxed max-w-lg mx-auto lg:mx-0 pointer-events-auto">
                 Cirurgia avançada de quadril e joelho com foco na recuperação precoce da marcha e no alívio definitivo da dor.
               </p>
             </motion.div>
@@ -187,19 +187,19 @@ export default function HeroScrollTrack() {
 
           {/* BARRA DE MÉTRICAS: Empilhada à esquerda no mobile e horizontal contínua no desktop */}
           <motion.div 
-            className="w-full pt-2 pointer-events-auto"
+            className="w-full pointer-events-auto z-20"
             initial={{ opacity: 0, y: 20 }}
             animate={isLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
           >
-            {/* Modo Mobile: Empilhado do lado esquerdo sem linhas */}
-            <div className="flex md:hidden flex-col items-start gap-1 pb-2 text-xs text-primary">
-              <div className="font-medium text-primary">
-                <span>+</span> {isLoaded && <AnimatedCounter end={10000} duration={1.8} />} Pacientes
+            {/* Modo Mobile: Empilhado do lado esquerdo com acabamento refinado */}
+            <div className="flex md:hidden flex-col items-start gap-1.5 pb-1 max-w-[200px]">
+              <div className="glass px-2.5 py-1 rounded-lg text-xs font-semibold text-primary shadow-xs border border-slate-200/80 backdrop-blur-md">
+                <span className="text-accent font-bold">+</span> {isLoaded && <AnimatedCounter end={10000} duration={1.8} />} Pacientes
               </div>
 
-              <div className="font-medium text-primary">
-                <span>+</span> {isLoaded && <AnimatedCounter end={5000} duration={1.8} />} h/cirurgias
+              <div className="glass px-2.5 py-1 rounded-lg text-xs font-semibold text-primary shadow-xs border border-slate-200/80 backdrop-blur-md">
+                <span className="text-accent font-bold">+</span> {isLoaded && <AnimatedCounter end={5000} duration={1.8} />} h/cirurgias
               </div>
 
               <div>
@@ -207,9 +207,9 @@ export default function HeroScrollTrack() {
                   href="https://www.instagram.com/drkaluancosta/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-medium text-primary hover:text-accent transition-colors"
+                  className="glass px-2.5 py-1 rounded-lg text-xs font-semibold text-primary hover:text-accent shadow-xs border border-slate-200/80 backdrop-blur-md inline-flex items-center gap-1.5 transition-colors"
                 >
-                  <Instagram size={14} className="text-accent shrink-0" />
+                  <Instagram size={13} className="text-accent shrink-0" />
                   <span>Instagram</span>
                 </a>
               </div>
@@ -249,25 +249,27 @@ export default function HeroScrollTrack() {
           </motion.div>
         </motion.div>
 
-        {/* Médico Centro / Túnel: Ampliado para presença imponente */}
-        <motion.div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 h-[74vh] sm:h-[80vh] lg:h-[88vh] origin-bottom pointer-events-none"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-          transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
-          style={{ 
-            scale: kaluanScale, 
-            opacity: kaluanOpacity,
-            filter: kaluanBlur
-          }}
-        >
-          <div className="absolute inset-0 bg-accent/20 blur-[100px] rounded-full"></div>
-          <img 
-            src={drKaluanImg} 
-            alt="Dr. Kaluan Costa" 
-            className="h-full w-auto object-contain relative z-10 drop-shadow-2xl"
-          />
-        </motion.div>
+        {/* Médico Centro / Túnel: Container estático mantém a centralização perfeita enquanto motion.div anima escala */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 h-[62dvh] sm:h-[80vh] lg:h-[88vh] pointer-events-none flex items-end justify-center">
+          <motion.div 
+            className="h-full w-auto origin-bottom"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isLoaded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+            style={{ 
+              scale: kaluanScale, 
+              opacity: kaluanOpacity,
+              filter: kaluanBlur
+            }}
+          >
+            <div className="absolute inset-0 bg-accent/20 blur-[100px] rounded-full"></div>
+            <img 
+              src={drKaluanImg} 
+              alt="Dr. Kaluan Costa" 
+              className="h-full w-auto object-contain relative z-10 drop-shadow-2xl"
+            />
+          </motion.div>
+        </div>
 
         {/* ================= CENA 3: GONIÔMETRO ================= */}
         <motion.div 
@@ -308,11 +310,11 @@ export default function HeroScrollTrack() {
         {/* ================= CENA 4: RETORNO ================= */}
         <motion.div 
           id="sobre"
-          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center max-w-6xl mx-auto px-6 z-30 pointer-events-none"
+          className="absolute inset-0 flex flex-col lg:flex-row items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 z-30 pointer-events-none"
           style={{ y: returnY, opacity: returnOpacity }}
         >
           <motion.div 
-            className="flex-1 h-[60vh] lg:h-[80vh] relative mb-8 lg:mb-0"
+            className="hidden md:block flex-1 h-[50vh] lg:h-[80vh] relative mb-8 lg:mb-0"
             style={{ x: returnDoctorX }}
           >
             <img 
@@ -322,28 +324,28 @@ export default function HeroScrollTrack() {
             />
           </motion.div>
           
-          <div className="flex-1 pointer-events-auto w-full lg:w-auto">
-            <div className="dark-glass p-8 md:p-10 rounded-3xl">
-              <h2 className="text-3xl font-serif font-bold mb-6">Excelência Cirúrgica & Rigor Científico</h2>
-              <ul className="space-y-4 text-slate-300 mb-8">
+          <div className="flex-1 pointer-events-auto w-full max-w-lg lg:max-w-none">
+            <div className="dark-glass p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold mb-3 sm:mb-6">Excelência Cirúrgica & Rigor Científico</h2>
+              <ul className="space-y-2 sm:space-y-4 text-xs sm:text-sm md:text-base text-slate-300 mb-5 sm:mb-8">
                 <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 sm:mt-2 shrink-0"></div>
                   <span>Especialização em Cirurgia de Quadril e Joelho — UFPR</span>
                 </li>
                 <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 sm:mt-2 shrink-0"></div>
                   <span>Membro Titular da Sociedade Brasileira de Ortopedia e Traumatologia (SBOT)</span>
                 </li>
                 <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 sm:mt-2 shrink-0"></div>
                   <span>Residência Médica — CEOT-PR</span>
                 </li>
                 <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 sm:mt-2 shrink-0"></div>
                   <span>Professor de Ortopedia no Centro Universitário São Lucas (UNISL)</span>
                 </li>
                 <li className="flex gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 sm:mt-2 shrink-0"></div>
                   <span>Corpo Clínico do Hospital Prontocordis</span>
                 </li>
               </ul>
@@ -351,9 +353,9 @@ export default function HeroScrollTrack() {
                 href={wpLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="btn-cta w-full py-4 text-center text-sm sm:text-base"
+                className="btn-cta w-full py-3.5 sm:py-4 text-center text-sm sm:text-base"
               >
-                <Calendar size={20} />
+                <Calendar size={18} className="sm:w-5 sm:h-5" />
                 <span>Agendar Avaliação</span>
               </a>
             </div>
